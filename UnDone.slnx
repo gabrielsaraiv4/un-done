@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/server/">
+    <Project Path="server/UnDone.API/UnDone.API.csproj" />
+    <Project Path="server/UnDone.Application/UnDone.Application.csproj" />
+    <Project Path="server/UnDone.Domain/UnDone.Domain.csproj" />
+    <Project Path="server/UnDone.Infrastructure/UnDone.Infrastructure.csproj" />
+  </Folder>
+</Solution>
