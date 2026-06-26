@@ -1,6 +1,6 @@
 using UnDone.Domain.Entities;
 
-namespace UnDone.Application.interfaces;
+namespace UnDone.Application.Interfaces;
 
 public interface IUserRepository
 {
