@@ -6,4 +6,4 @@ public record LoginCommand(
     string Email, string Password) : IRequest<LoginResult>;
 
 public record LoginResult(
-    string Toker, Guid UserId, string Username);
+    string Token, Guid UserId, string Username);
