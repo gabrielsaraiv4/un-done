@@ -9,6 +9,7 @@ using UnDone.Infrastructure.Data;
 using UnDone.Infrastructure.Repositories;
 using UnDone.Infrastructure.Services;
 using UnDone.Application.Commands.Auth.Register;
+using UnDone.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +51,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
