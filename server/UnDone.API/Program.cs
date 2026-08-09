@@ -7,6 +7,9 @@ using System.Text;
 using UnDone.Application.Interfaces;
 using UnDone.Infrastructure.Data;
 using UnDone.Infrastructure.Repositories;
+using UnDone.Infrastructure.Services;
+using UnDone.Application.Commands.Auth.Register;
+using UnDone.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<IStoreRepository, StoreRepository>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 //  JWT Auth
 var jwtSecret = builder.Configuration["JwtSettings:Secret"]!;
@@ -36,6 +40,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(RegisterHandler).Assembly));
 
 var app = builder.Build();
 
@@ -46,6 +51,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
