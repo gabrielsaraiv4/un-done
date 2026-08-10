@@ -19,7 +19,14 @@ public class UserRepository : IUserRepository
         return await _context.Users.FindAsync(id);
     }
 
-    public async Task <User?> GetByEmailAsync(string email)
+    public async Task<User?> GetByIdWithEffectsAsync(Guid id)
+    {
+        return await _context.Users
+            .Include(u => u.ActiveEffects)
+            .FirstOrDefaultAsync(u => u.Id == id);
+    }
+
+    public async Task<User?> GetByEmailAsync(string email)
     {
         return await _context.Users
             .FirstOrDefaultAsync(u => u.Email == email);

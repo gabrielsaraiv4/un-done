@@ -1,6 +1,4 @@
-using System.Runtime.Intrinsics.Arm;
 using Microsoft.EntityFrameworkCore;
-using Undone.Domain.Enums;
 using UnDone.Application.Interfaces;
 using UnDone.Domain.Entities;
 using UnDone.Domain.Enums;
@@ -25,7 +23,7 @@ public class StoreRepository : IStoreRepository
     public async Task<IEnumerable<ShopItem>> GetAllActiveAsync()
     {
         return await _context.ShopItems
-            .Where(s => s.isActive)
+            .Where(s => s.IsActive)
             .ToListAsync();
     }
 
@@ -39,7 +37,7 @@ public class StoreRepository : IStoreRepository
     public async Task<ActiveEffect?> GetActiveEffectAsync(Guid userId, EffectType effectType)
     {
         return await _context.ActiveEffects
-            .Where(ae => ae.UserId == userId && ae.EffectType == effectType && ae.ExpiresAt > DateTime.UtcNow)
+            .Where(ae => ae.UserId == userId && ae.Type == effectType && ae.ExpiresAt > DateTime.UtcNow)
             .FirstOrDefaultAsync();
     }
 
