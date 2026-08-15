@@ -9,6 +9,6 @@ public enum TaskDifficulty
 {
    Easy = 0,
    Medium = 1,
-   Hard = 3,
+   Hard = 2,
    Daily = 3 
 }

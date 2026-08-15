@@ -1,4 +1,4 @@
-namespace Undone.Domain.Enums;
+namespace UnDone.Domain.Enums;
 
 /// <summary>
 /// 1. Defines the type of a temporary active on a user.

@@ -1,6 +1,6 @@
 using MediatR;
-using UnDone.Application.Interfaces;
 using UnDone.Domain.Enums;
+using UnDone.Application.Interfaces;
 
 namespace UnDone.Application.Commands.Tasks.CompleteTask;
 
@@ -32,10 +32,10 @@ public class CompleteTaskHandler : IRequestHandler<CompleteTaskCommand, Complete
         var xp = task.XpReward;
         var coins = task.CoinReward;
 
-        // XP Boost if active
+        // Apply XP Boost if active
         var boost = user.ActiveEffects
-            .FirstOrDefault(e => e.EffectType == EffectType.XpBoost && e.ExpiresAt > DateTime.UtcNow);
-        
+            .FirstOrDefault(e => e.Type == EffectType.XpBoost && e.ExpiresAt > DateTime.UtcNow);
+
         if (boost is not null)
             xp *= 2;
 
@@ -44,7 +44,7 @@ public class CompleteTaskHandler : IRequestHandler<CompleteTaskCommand, Complete
 
         if (task.Type == TaskType.Daily)
             task.LastResetDate = DateOnly.FromDateTime(DateTime.UtcNow);
-        
+
         user.CurrentXp += xp;
         user.Coins += coins;
         user.LastActivityDate = DateOnly.FromDateTime(DateTime.UtcNow);
@@ -56,14 +56,14 @@ public class CompleteTaskHandler : IRequestHandler<CompleteTaskCommand, Complete
         return new CompleteTaskResult(task.Id, xp, coins, user.Level, user.CurrentXp, user.Coins);
     }
 
-    private static int CalculateLevel(int totalXP)
+    private static int CalculateLevel(int totalXp)
     {
         int level = 1;
         int xpRequired = 100;
 
-        while (totalXP >= xpRequired)
+        while (totalXp >= xpRequired)
         {
-            totalXP -= xpRequired;
+            totalXp -= xpRequired;
             level++;
             xpRequired = 100 + ((level - 1) * 50);
         }

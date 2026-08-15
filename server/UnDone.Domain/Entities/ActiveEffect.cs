@@ -1,4 +1,4 @@
-using Undone.Domain.Enums;
+using UnDone.Domain.Enums;
 
 namespace UnDone.Domain.Entities;
 
@@ -15,7 +15,7 @@ public class ActiveEffect
     public Guid UserId { get; set; }
     public User User { get; set; } = null!;
 
-    public EffectType EffectType { get; set; }
+    public EffectType Type { get; set; }
 
     public DateTime ActivatedAt { get; set; } = DateTime.UtcNow;
     public DateTime ExpiresAt { get; set; }
