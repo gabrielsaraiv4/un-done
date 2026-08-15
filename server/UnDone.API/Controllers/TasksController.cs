@@ -33,10 +33,16 @@ public class TasksController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateTask([FromBody] CreateTaskCommand command)
+    public async Task<IActionResult> CreateTask([FromBody] CreateTaskRequest request)
     {
-        var fullCommand = command with { UserId = GetUserId() };
-        return Ok(await _mediator.Send(fullCommand));
+        var command = new CreateTaskCommand(
+            GetUserId(),
+            request.Title,
+            request.Description,
+            request.Type,
+            request.Difficulty
+        );
+        return Ok(await _mediator.Send(command));
     }
 
     [HttpPost("{taskId}/complete")]
@@ -45,7 +51,7 @@ public class TasksController : ControllerBase
         var result = await _mediator.Send(new CompleteTaskCommand(taskId, GetUserId()));
         return Ok(result);
     }
-    
+
     [HttpDelete("{taskId}")]
     public async Task<IActionResult> DeleteTask(Guid taskId)
     {
