@@ -26,6 +26,14 @@ public class UserRepository : IUserRepository
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 
+    public async Task<User?> GetByIdWithBadgesAsync(Guid id)
+    {
+        return await _context.Users
+            .Include(u => u.UserBadges)
+                .ThenInclude(ub => ub.Badge)
+            .FirstOrDefaultAsync(u => u.Id == id);
+    }
+
     public async Task<User?> GetByEmailAsync(string email)
     {
         return await _context.Users
