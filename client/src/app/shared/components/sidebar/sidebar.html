@@ -1,1 +1,43 @@
-<p>sidebar works!</p>
+<aside class="sidebar">
+  <a routerLink="/home" class="sidebar-logo">
+    <img src="undone_logo.png" alt="(un)Done" class="logo-img" />
+  </a>
+
+  <nav class="sidebar-nav">
+    <p class="nav-section-label">Menu</p>
+    <a routerLink="/home" routerLinkActive="active" class="nav-item">
+      <i class="ph-fill ph-house"></i>
+      <span>Home</span>
+    </a>
+    <a routerLink="/profile" routerLinkActive="active" class="nav-item">
+      <i class="ph-fill ph-user"></i>
+      <span>Profile</span>
+    </a>
+    <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+      <i class="ph-fill ph-chart-bar"></i>
+      <span>Dashboard</span>
+    </a>
+    <a routerLink="/store" routerLinkActive="active" class="nav-item">
+      <i class="ph-fill ph-shopping-bag"></i>
+      <span>Store</span>
+    </a>
+
+    <p class="nav-section-label">Account</p>
+    <a routerLink="/settings" routerLinkActive="active" class="nav-item">
+      <i class="ph-fill ph-gear"></i>
+      <span>Settings</span>
+    </a>
+    <a class="nav-item logout">
+      <i class="ph-fill ph-sign-out"></i>
+      <span>Log out</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <i class="ph-fill ph-user-circle user-avatar-icon"></i>
+    <div class="user-info">
+      <span class="user-name">John Doe</span>
+      <span class="user-level">Level 1</span>
+    </div>
+  </div>
+</aside>
