@@ -1,1 +1,67 @@
-<p>home works!</p>
+<div class="home-container">
+  <div class="home-hero">
+    <div class="hero-text">
+      <span class="greeting">Good morning, <strong>John Doe</strong>!</span>
+    </div>
+    <button class="btn-new-task">
+      <i class="ph-fill ph-plus"></i>
+      Add new task
+    </button>
+  </div>
+
+  <div class="xp-bar-container">
+    <div class="xp-info">
+      <span class="xp-level">Lvl. 1</span>
+      <span class="xp-value">30/100 XP</span>
+    </div>
+    <div class="xp-bar">
+      <div class="xp-fill" style="width: 30%"></div>
+    </div>
+  </div>
+
+  <div class="tasks-section">
+    <h2 class="section-title">Daily</h2>
+    <div class="task-list">
+      <div class="task-card">
+        <input type="checkbox" class="task-check" />
+        <div class="task-body">
+          <span class="task-title">Complete a daily challenge</span>
+          <span class="task-meta">Daily</span>
+        </div>
+        <button class="task-menu"><i class="ph ph-dots-three-vertical"></i></button>
+      </div>
+    </div>
+
+    <h2 class="section-title">One-shot</h2>
+    <div class="task-list">
+      <div class="task-card hard">
+        <input type="checkbox" class="task-check" />
+        <div class="task-body">
+          <span class="task-title">Configure JWT Authentication</span>
+          <span class="task-meta">One-shot · Hard</span>
+        </div>
+        <button class="task-menu"><i class="ph ph-dots-three-vertical"></i></button>
+      </div>
+      <div class="task-card easy">
+        <input type="checkbox" class="task-check" />
+        <div class="task-body">
+          <span class="task-title">Study Clean Architecture</span>
+          <span class="task-meta">One-shot · Easy</span>
+        </div>
+        <button class="task-menu"><i class="ph ph-dots-three-vertical"></i></button>
+      </div>
+    </div>
+
+    <h2 class="section-title">Completed</h2>
+    <div class="task-list">
+      <div class="task-card completed">
+        <input type="checkbox" class="task-check" checked />
+        <div class="task-body">
+          <span class="task-title done">Implement Repository Pattern</span>
+          <span class="task-meta">One-shot · Hard</span>
+        </div>
+        <button class="task-menu"><i class="ph ph-dots-three-vertical"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
