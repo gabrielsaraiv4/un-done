@@ -1,0 +1,12 @@
+<header class="app-header">
+  <div class="header-left">
+    <ng-content></ng-content>
+  </div>
+  <div class="header-right">
+    <span class="level-info">Lvl. {{ level() }} ({{ currentXp() }}/{{ xpToNextLevel() }})</span>
+    <span class="coins">
+      <i class="ph-fill ph-coin"></i>
+      {{ coins() }}
+    </span>
+  </div>
+</header>

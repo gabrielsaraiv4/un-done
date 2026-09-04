@@ -1,6 +1,9 @@
 <div class="app-layout">
   <app-sidebar />
   <main class="main-content">
+    <app-header [level]="1" [currentXp]="30" [xpToNextLevel]="100" [coins]="20">
+      {{ pageTitle.title() }}
+    </app-header>
     <router-outlet />
   </main>
 </div>
