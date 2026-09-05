@@ -3,7 +3,7 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { Sidebar } from './shared/components/sidebar/sidebar';
 import { Header } from './shared/components/header/header';
-import { PageTitleService } from './core/services/page-title';
+import { PageTitleService } from './core/services/page-title/page-title';
 
 @Component({
   selector: 'app-root',

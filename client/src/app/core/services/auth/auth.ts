@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { LoginRequest, RegisterRequest, AuthResponse } from '../../shared/models/auth.model';
+import { LoginRequest, RegisterRequest, AuthResponse } from '../../../shared/models/auth.model';
 
 @Injectable({
   providedIn: 'root'
