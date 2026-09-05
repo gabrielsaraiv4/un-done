@@ -4,14 +4,61 @@
   align-items: center;
   justify-content: center;
   background: var(--color-bg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+  }
+
+  .blob-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--color-primary-light);
+    opacity: 0.35;
+    top: -150px;
+    left: -150px;
+  }
+
+  .blob-2 {
+    width: 450px;
+    height: 450px;
+    background: var(--color-primary);
+    opacity: 0.25;
+    bottom: -150px;
+    right: -100px;
+  }
+
+  .blob-3 {
+    width: 300px;
+    height: 300px;
+    background: var(--color-primary-dark);
+    opacity: 0.15;
+    top: 40%;
+    right: 15%;
+  }
 }
 
 .auth-card {
-  width: 380px;
+  position: relative;
+  z-index: 1;
+  width: 400px;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 2.5rem;
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.auth-card {
+  width: 400px;
+  background: var(--color-surface);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .auth-logo {
@@ -19,26 +66,26 @@
   align-items: baseline;
   justify-content: center;
   gap: 3px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 
   .logo-un {
     font-family: 'Sora', sans-serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--color-text-secondary);
   }
 
   .logo-done {
     font-family: 'Sora', sans-serif;
-    font-size: 30px;
+    font-size: 34px;
     font-weight: 700;
     color: var(--color-primary);
   }
 }
 
 .auth-title {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: var(--color-text-primary);
   text-align: center;
   margin-bottom: 0.5rem;
@@ -48,7 +95,7 @@
   font-size: 14px;
   color: var(--color-text-secondary);
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .form-field {
@@ -57,18 +104,19 @@
   label {
     display: block;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-text-secondary);
     margin-bottom: 6px;
   }
 
   input {
     width: 100%;
-    padding: 0.65rem 0.9rem;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    font-size: 14px;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    font-size: 15px;
     font-family: inherit;
+    transition: border-color 0.15s;
 
     &:focus {
       outline: none;
@@ -83,20 +131,30 @@
   margin-bottom: 1rem;
 }
 
+.success-message {
+  color: var(--color-easy);
+  font-size: 13px;
+  margin-bottom: 1rem;
+}
+
 .btn-submit {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.9rem;
   background: var(--color-primary);
   color: #ffffff;
   border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.15s, transform 0.1s;
 
   &:hover:not(:disabled) {
     background: var(--color-primary-dark);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
   }
 
   &:disabled {
@@ -106,14 +164,14 @@
 }
 
 .auth-footer {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--color-text-secondary);
 
   a {
     color: var(--color-primary);
-    font-weight: 500;
+    font-weight: 700;
     text-decoration: none;
 
     &:hover {
