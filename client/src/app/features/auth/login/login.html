@@ -1,0 +1,34 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <span class="logo-un">(un)</span><span class="logo-done">Done</span>
+    </div>
+
+    <h1 class="auth-title">Welcome back</h1>
+    <p class="auth-subtitle">Log in to continue your progress</p>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="you@example.com" required />
+      </div>
+
+      <div class="form-field">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="••••••••" required />
+      </div>
+
+      @if (errorMessage()) {
+        <p class="error-message">{{ errorMessage() }}</p>
+      }
+
+      <button type="submit" class="btn-submit" [disabled]="isLoading()">
+        {{ isLoading() ? 'Logging in...' : 'Log in' }}
+      </button>
+    </form>
+
+    <p class="auth-footer">
+      Don't have an account? <a routerLink="/register">Sign up</a>
+    </p>
+  </div>
+</div>
