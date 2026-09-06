@@ -33,11 +33,11 @@
     </a>
   </nav>
 
-  <div class="sidebar-footer">
+    <div class="sidebar-footer">
     <i class="ph-fill ph-user-circle user-avatar-icon"></i>
     <div class="user-info">
-      <span class="user-name">John Doe</span>
-      <span class="user-level">Level 1</span>
+      <span class="user-name">{{ userState.profile()?.username ?? 'Loading...' }}</span>
+      <span class="user-level">Level {{ userState.profile()?.level ?? 1 }}</span>
     </div>
   </div>
 </aside>

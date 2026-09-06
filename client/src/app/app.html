@@ -2,7 +2,11 @@
   <div class="app-layout">
     <app-sidebar />
     <main class="main-content">
-      <app-header [level]="1" [currentXp]="30" [xpToNextLevel]="100" [coins]="20">
+      <app-header
+        [level]="userState.profile()?.level ?? 1"
+        [currentXp]="userState.profile()?.currentXp ?? 0"
+        [xpToNextLevel]="userState.profile()?.xpToNextLevel ?? 100"
+        [coins]="userState.profile()?.coins ?? 0">
         {{ pageTitle.title() }}
       </app-header>
       <router-outlet />
